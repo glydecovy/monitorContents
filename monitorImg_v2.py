@@ -167,7 +167,7 @@ if __name__ == '__main__':
 		for value in data:
 			if value not in result:result.append(value)
 		summary.append([title, len(result)]) 
-    if len(result) < 3 : error_flag = True
+    		if len(result) < 3 : error_flag = True	
 
 	print("###########################################################################################################")
 	print(summary)
@@ -180,8 +180,10 @@ if __name__ == '__main__':
 	t= tabulate(df, headers='keys', tablefmt='plain', showindex=False, numalign='right' )
 	print(t)
 # 	error_flag == True 인 경우만 메세지 전송
+
+	error_flag = True #test용 2022.11.08
 	try:
-    if error_flag == True:
-      sendMsg(telegram_token, "<pre>"+t+"</pre>")														
+		if error_flag == True:
+			sendMsg(telegram_token, "<pre>"+t+"</pre>")														
 	except Exception as e:
 		print("e:",e)
