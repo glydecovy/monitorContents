@@ -1,0 +1,36 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python package
+
+on:
+  schedule:
+  - cron: "7,27,57 7-23 * * *"
+
+jobs:
+  run:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt 
+        pip install matplotlib
+        pip install bs4
+        pip install pandas
+        pip install gazpacho
+        pip install tabulate
+    - name: Download chromedriver
+      run: |
+        wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
+        unzip tmp.zip && rm tmp.zip        
+    - name: Test with pytest
+      run: |
+        python monitorImg_v2.py  ${{ secrets.CHAT_TOKEN }} ${{ secrets.CHAT_ID }}
