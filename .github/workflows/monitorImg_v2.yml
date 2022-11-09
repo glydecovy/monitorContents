@@ -5,7 +5,7 @@ name: Python package
 
 on:
   schedule:
-  - cron: "7,27,57 16-23,0-7 * * *"
+  - cron: "7,27,57 22-23,0-14 * * *"
 
 jobs:
   run:
