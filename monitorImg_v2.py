@@ -58,8 +58,7 @@ if __name__ == '__main__':
 
 	# chrome driver
 	wd = webdriver.Chrome('chromedriver', options=options)
-	wd.implicitly_wait(3)    
-
+	wd.implicitly_wait(3)
 	wd.get(url)
 	time.sleep(5)
 	html = wd.page_source
