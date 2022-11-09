@@ -181,7 +181,7 @@ if __name__ == '__main__':
 	print(t)
 # 	error_flag == True 인 경우만 메세지 전송
 
-	error_flag = True #test용 2022.11.08
+# 	error_flag = True #test용 2022.11.08
 	try:
 		if error_flag == True:
 			sendMsg(telegram_token, "<pre>"+t+"</pre>")														
