@@ -73,7 +73,9 @@ if __name__ == '__main__':
 	# [div.text for div in divs]
 #index 12, 글라이드스토리 제외
 	for index, value in enumerate(divs):		
-		if index == 12:
+# 		if index == 12:
+# index 12 가 "글라이드스토리" 아닌 경우 있음. 2022.11.14
+		if value.text =='글라이드 스토리':
 			continue
 		else:
 			tmp = value.attrs
