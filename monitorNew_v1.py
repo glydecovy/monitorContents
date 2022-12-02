@@ -38,7 +38,7 @@ def search_result(search_text, godNm):
     request_headers = { 
     'User-Agent' : ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36') } 
 
-    wd = webdriver.Chrome('C:\chromedriver_win32\chromedriver.exe')
+#     wd = webdriver.Chrome('C:\chromedriver_win32\chromedriver.exe')
     options = webdriver.ChromeOptions()
     options.add_argument("start-maximized")
     options.add_argument("lang=ko_KR")
@@ -48,7 +48,7 @@ def search_result(search_text, godNm):
     options.add_argument("--no-sandbox")
 
     # chrome driver
-    # wd = webdriver.Chrome('chromedriver', options=options)
+    wd = webdriver.Chrome('chromedriver', options=options)
     wd.implicitly_wait(3)      
 
     wd.get(url_search+search_text)
