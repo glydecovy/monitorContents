@@ -9,6 +9,7 @@ from gazpacho import Soup
 import telegram 
 from telegram import ParseMode
 from tabulate import tabulate
+import os,sys
 
 tabulate.WIDE_CHARS_MODE = True
 
