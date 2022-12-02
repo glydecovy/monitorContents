@@ -80,42 +80,41 @@ if __name__ == '__main__':
 	telegram_token = sys.argv[1]
 	cat_id 	= sys.argv[2]
 
-  tokenizer = Okt() 
+	tokenizer = Okt() 
 
-  context = ssl._create_unverified_context()
+	context = ssl._create_unverified_context()
 
-  url = 'https://m.glyde.co.kr/api/display/getRecommandGodList?gtrndSn=1021'
-  url_search = 'https://m.glyde.co.kr/ui/search/searchResultPage?keyword='
+	url = 'https://m.glyde.co.kr/api/display/getRecommandGodList?gtrndSn=1021'
+	url_search = 'https://m.glyde.co.kr/ui/search/searchResultPage?keyword='
 
-  headers = {'Content-Type': 'application/json; charset=utf-8'}
-  response = requests.get(url, headers=headers)
+	headers = {'Content-Type': 'application/json; charset=utf-8'}
+	response = requests.get(url, headers=headers)
 
-  for x in response.json():      # json → dict
-      xx = x['god']
-      print('===================================================================================')
-      print('상품명 :'+ xx['shrtenGodNm'])
-      godNm = xx['shrtenGodNm']
+	for x in response.json():      # json → dict
+		xx = x['god']
+		print('===================================================================================')
+		print('상품명 :'+ xx['shrtenGodNm'])
+		godNm = xx['shrtenGodNm']
 
-      x2 = text_preprocessing(godNm)[:1][0]
+		x2 = text_preprocessing(godNm)[:1][0]
 
-      if godNm.find("라구") != -1 : x2[0] += ["라구"]
-      elif godNm.find("수제") != -1 : x2[0] += ["수제"]
-      elif godNm.find("얼큰") != -1 : x2[0] += ["얼큰"]
-      elif godNm.find("순댓국") != -1 : x2[0] += ["순댓국"]
+		if godNm.find("라구") != -1 : x2[0] += ["라구"]
+		elif godNm.find("수제") != -1 : x2[0] += ["수제"]
+		elif godNm.find("얼큰") != -1 : x2[0] += ["얼큰"]
+		elif godNm.find("순댓국") != -1 : x2[0] += ["순댓국"]
 
-      print('검색어(형태소 분리) :'+ str(x2[0]))
-      for value in x2[0] :
-
-          print('[검색어] :'+ value)
-          search_flag = search_result(value, godNm)
-          print(value + ":"+str(search_flag))
-      #     search_flag = True 인 경우, 정상 검색 상태
-          if search_flag == False :    
-              t = '[상품명] :'+ xx['shrtenGodNm'] +'\n'
-              t += '[검색어] :'+ value +'\n'
-              t += '[검색결과] 없음'
-              print(t)
-              try:
-                  sendMsg(TOKEN, "<pre>"+t+"</pre>")
-              except Exception as e:
-                  print("e:",e)   
+		print('검색어(형태소 분리) :'+ str(x2[0]))
+		for value in x2[0] :
+			print('[검색어] :'+ value)
+			search_flag = search_result(value, godNm)
+			print(value + ":"+str(search_flag))
+			#     search_flag = True 인 경우, 정상 검색 상태
+			if search_flag == False :    
+				t = '[상품명] :'+ xx['shrtenGodNm'] +'\n'
+				t += '[검색어] :'+ value +'\n'
+				t += '[검색결과] 없음'
+				print(t)
+			try:
+				sendMsg(TOKEN, "<pre>"+t+"</pre>")
+			except Exception as e:
+				print("e:",e)   
