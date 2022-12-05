@@ -72,7 +72,7 @@ def search_result(search_text, godNm):
         
     return search_ok_flag 
 
-def sendMsg(telegram_token, msgText):
+def sendMsg(telegram_token, cat_id, msgText):
 	bot 	= telegram.Bot(token = telegram_token)
 	bot.sendMessage(chat_id = cat_id, text=msgText, parse_mode="HTML")    
 
@@ -115,7 +115,7 @@ if __name__ == '__main__':
 				t += '[검색어] :'+ value +'\n'
 				t += '[검색결과] 없음'
 				print(t)
-			try:
-				sendMsg(TOKEN, "<pre>"+t+"</pre>")
-			except Exception as e:
-				print("e:",e)   
+				try:
+					sendMsg(telegram_token, cat_id, "<pre>"+t+"</pre>")
+				except Exception as e:
+					print("e:",e)   
