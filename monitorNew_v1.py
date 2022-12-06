@@ -59,20 +59,21 @@ def search_result(search_text, godNm):
     bs = BeautifulSoup(html, 'html.parser')
 
     arta = bs.find_all("dd", {"class": "prdt-name"})  	
-#     print('[검색결과]')
-    for art in arta:		
-        print(art.text.strip())
-	# 검색 결과중, 최초 상품명과 일치 하는 검색결과가 있으면 True 
-	# 예) 최초 상품명 : 오렌지착즙주스1L
-	#     검색어(형태소 분리) :['오렌지', '착즙', '주스']
-	#    "검색어" 로 검색한 결과에 "오렌지착즙주스1L" 가 있는지 확인하는 로직
+    print('[검색결과]')
+# 검색 결과중, 최초 상품명과 일치 하는 검색결과가 있으면 True 
+# 예) 최초 상품명 : 오렌지착즙주스1L
+#     검색어(형태소 분리) :['오렌지', '착즙', '주스']
+#    "검색어" 로 검색한 결과에 "오렌지착즙주스1L" 가 있는지 확인하는 로직
+# 	search_word 가 존재하는 상품명은 검색어 등록이 된 경우, search_word 없으면 추천상품으로 검색된 경우
+#       신규 상품명 = 검색상품명 & 검색어에 의한 조회 성공한 경우만 true
+    for art in arta:
+		search_word = None
+		print(art.text.strip())
 		search_word = None
 		search_word = art.find("em", {"class": "search-word"})
 		print(search_word)
-	# 	search_word 가 존재하는 상품명은 검색어 등록이 된 경우, search_word 없으면 추천상품으로 검색된 경우
-	#       신규 상품명 = 검색상품명 & 검색어에 의한 조회 성공한 경우만 true
-        if godNm.strip() == art.text.strip() and search_word != None : search_ok_flag = True
-	return search_ok_flag 
+		if godNm.strip() == art.text.strip() and search_word != None : search_ok_flag = True
+return search_ok_flag 
 
 def sendMsg(telegram_token, cat_id, msgText):
 	bot 	= telegram.Bot(token = telegram_token)
