@@ -67,11 +67,11 @@ def search_result(search_text, godNm):
 # 	search_word 가 존재하는 상품명은 검색어 등록이 된 경우, search_word 없으면 추천상품으로 검색된 경우
 #       신규 상품명 = 검색상품명 & 검색어에 의한 조회 성공한 경우만 true
     for art in arta:
-		search_word = None
-		print(art.text.strip())	
-		search_word = art.find("em", {"class": "search-word"})
-		print(search_word)
-		if godNm.strip() == art.text.strip() and search_word != None : search_ok_flag = True
+        search_word = None
+        print(art.text.strip())
+        search_word = art.find("em", {"class": "search-word"})
+        print(search_word)
+        if godNm.strip() == art.text.strip() and search_word != None : search_ok_flag = True
 return search_ok_flag 
 
 def sendMsg(telegram_token, cat_id, msgText):
