@@ -62,7 +62,7 @@ def search_result(search_text, godNm):
     print('[검색결과]')
     for art in arta:	
         print(art.text.strip())
-	search_word = None
+		search_word = None
 	# 검색 결과중, 최초 상품명과 일치 하는 검색결과가 있으면 True 
 	# 예) 최초 상품명 : 오렌지착즙주스1L
 	#     검색어(형태소 분리) :['오렌지', '착즙', '주스']
