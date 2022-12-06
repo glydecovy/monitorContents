@@ -72,7 +72,7 @@ def search_result(search_text, godNm):
         search_word = art.find("em", {"class": "search-word"})
         print(search_word)
         if godNm.strip() == art.text.strip() and search_word != None : search_ok_flag = True
-return search_ok_flag 
+    return search_ok_flag
 
 def sendMsg(telegram_token, cat_id, msgText):
 	bot 	= telegram.Bot(token = telegram_token)
