@@ -28,6 +28,7 @@ jobs:
         pip install gazpacho
         pip install tabulate
         pip install konlpy
+        pip install numpy
     - name: Download chromedriver
       run: |
         wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
