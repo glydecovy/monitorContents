@@ -168,7 +168,7 @@ if __name__ == '__main__':
 		for value in data:
 			if value not in result:result.append(value)
 		summary.append([title, len(result)]) 
-		if len(result) < 3 : error_flag = True	
+		if len(result) < 2 : error_flag = True	
 
 	print("###########################################################################################################")
 	print(summary)
