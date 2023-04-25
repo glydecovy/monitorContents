@@ -17,6 +17,7 @@ from gazpacho import Soup
 import http.client
 from tabulate import tabulate
 tabulate.WIDE_CHARS_MODE = True
+# dummy 20230425
 
 def getToDay():
 	return KST.strftime("%Y%m%d")
