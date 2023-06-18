@@ -13,7 +13,7 @@ import os,sys
 from numpy import nan as NA
 
 tabulate.WIDE_CHARS_MODE = True
-
+# dummy 20230619
 def text_preprocessing(text):
     stopwords = ['을', '를', '이', '가', '은', '는', '와', '과', '들', 
                 '에', '고','의','로','으로','하고','하는','하여','이고', '있다', '했다', 
