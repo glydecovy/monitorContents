@@ -108,9 +108,9 @@ if __name__ == '__main__':
 		if grpNm == 'home-group1':
 			tmp_img = table.find_all("img")
 			tmp_src = "src"
-		elif grpNm == 'home-group13-1':
-			tmp_img = table.find_all("img")
-			tmp_src = "data-src"
+		# elif grpNm == 'home-group13-1':
+		# 	tmp_img = table.find_all("img")
+		# 	tmp_src = "data-src"
 		elif grpNm == 'home-group19':
 			tmp_img = table.find_all('div', { 'class': 'user-review-wrap' })
 
